@@ -1,0 +1,103 @@
+<nav
+  class="fixed top-0 left-0 right-0 z-50 bg-[#181311] text-white shadow-lg transition-all duration-300"
+>
+  <div class="flex justify-between items-center p-4 relative">
+    <div class="flex items-center gap-2">
+      <img
+        class="w-10"
+        src="/public/logotipoEmpresa.webp"
+        alt="logotipo de la empresa"
+      />
+      <h1 class="capitalize font-bold">the golden spoon</h1>
+    </div>
+
+    <!-- Botón de menú móvil -->
+    <button
+      id="menu-toggle"
+      class="md:hidden p-2 hover:bg-[#2a2220] rounded-lg transition-colors duration-200 z-50"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+
+    <!-- Menú de navegación -->
+    <div
+      id="nav-menu"
+      class="hidden md:block absolute md:static w-full md:w-auto right-0"
+    >
+      <ul
+        class="flex flex-col md:flex-row gap-4 items-center absolute md:relative top-14 md:top-auto left-0 right-0 bg-[#181311] md:bg-transparent p-4 md:p-0 border-t md:border-0 border-gray-700 shadow-lg md:shadow-none"
+      >
+        <li
+          class="opacity-80 hover:opacity-100 hover:underline w-full md:w-auto text-center"
+        >
+          <a href="#home">Home</a>
+        </li>
+        <li
+          class="opacity-80 hover:opacity-100 hover:underline w-full md:w-auto text-center"
+        >
+          <a href="#menu">Menu</a>
+        </li>
+        <li
+          class="opacity-80 hover:opacity-100 hover:underline w-full md:w-auto text-center"
+        >
+          <a href="#about">About</a>
+        </li>
+        <li
+          class="opacity-80 hover:opacity-100 hover:underline w-full md:w-auto text-center"
+        >
+          <a href="#testimonials">Testimonials</a>
+        </li>
+        <li
+          class="opacity-80 hover:opacity-100 hover:underline w-full md:w-auto text-center"
+        >
+          <a href="#contact">Contact</a>
+        </li>
+        <a
+          class="bg-[#ec4913] p-2 rounded-2xl w-full md:w-auto text-center"
+          href="#">Book a Table</a
+        >
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const navMenu = document.getElementById("nav-menu");
+
+    menuToggle?.addEventListener("click", () => {
+      navMenu?.classList.toggle("hidden");
+    });
+
+    // Cerrar el menú al hacer clic en un enlace (en móvil)
+    const navLinks = navMenu?.querySelectorAll("a");
+    navLinks?.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth < 768) {
+          // 768px es el breakpoint de md en Tailwind
+          navMenu?.classList.add("hidden");
+        }
+      });
+    });
+
+    // Cerrar el menú si la ventana se redimensiona a desktop
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 768) {
+        navMenu?.classList.remove("hidden");
+      } else {
+        navMenu?.classList.add("hidden");
+      }
+    });
+  </script>
+</nav>

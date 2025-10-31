@@ -1,0 +1,38 @@
+---
+import CardFood from "./CardFood.astro";
+---
+
+<section class="bg-[#181311] w-full" id="menu">
+  <div class="pt-20 text-center text-white">
+    <h2 class="text-5xl capitalize font-bold">our menu</h2>
+    <p class="pt-4 text-2xl opacity-80">
+      a curated selection of our most popular dishes. Fresh ingredients,
+      traditional recipies.
+    </p>
+  </div>
+  <div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-10">
+      <CardFood
+        imageSrc="./pla1.png"
+        title="Brushchetta al Pomodoro"
+        description="Toasted bread with fresh tomatoes, garlic, basil, and olive oil."
+        price="20"
+      />
+      <CardFood
+        imageSrc="./pla2.png"
+        title="Risotto ai Funghi"
+        description="Creamy risotto with wild mushrooms and parmesan cheese."
+        price="24"
+      />
+      <CardFood
+        imageSrc="./pla3.png"
+        title="Tiramisu Classico"
+        description="Coffee-soaked ladyfingers, mascarpone cream, dusted with cocoa."
+        price="10"
+      />
+    </div>
+    <div class="flex flex-col justify-center items-center p-4">
+      <a class="text-[#ec4913] font-bold" href="#">View Full Menu →</a>
+    </div>
+  </div>
+</section>
